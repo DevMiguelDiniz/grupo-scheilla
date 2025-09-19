@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react"
 import Image from "next/image"
-import { Button } from "@/components/ui/button"
+import { Button } from "./button"
 import { Menu, X } from "lucide-react"
 
 const Navbar = () => {
