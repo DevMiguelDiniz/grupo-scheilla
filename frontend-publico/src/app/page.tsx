@@ -1,12 +1,12 @@
-import Navbar from "@/components/navbar"
-import HeroCarousel from "@/components/hero-carousel"
-import EventsSection from "@/components/events-section"
-import HistorySection from "@/components/history-section"
-import VideosSection from "@/components/videos-section"
-import BooksSection from "@/components/books-section"
-import PhotosSection from "@/components/photos-section"
-import LocationSection from "@/components/location-section"
-import Footer from "@/components/footer"
+import Navbar from "@/app/components/navbar"
+import HeroCarousel from "@/app/components/hero-carousel"
+import EventsSection from "@/app/components/events-section"
+import HistorySection from "@/app/components/history-section"
+import VideosSection from "@/app/components/videos-section"
+import BooksSection from "@/app/components/books-section"
+import PhotosSection from "@/app/components/photos-section"
+import LocationSection from "@/app/components/location-section"
+import Footer from "@/app/components/footer"
 
 export default function Home() {
     return (
