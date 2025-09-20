@@ -1,5 +1,5 @@
 import { Search, Filter } from "lucide-react"
-import { types, statusOptions } from "@/data/Volunteers"
+import { types, statusOptions } from "@/mocks/Volunteers"
 
 interface VolunteersFiltersProps {
     searchTerm: string

@@ -1,5 +1,5 @@
 import { Search, Filter, Download } from "lucide-react"
-import { categories } from "@/data/Expenses"
+import { categories } from "@/mocks/Expenses"
 
 interface ExpensesFiltersProps {
     searchTerm: string

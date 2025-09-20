@@ -1,11 +1,12 @@
 "use client"
 
-import { useState } from "react"
-import { ExpensesHeader } from "@/components/Expenses/ExpensesHeader"
-import { ExpensesStats } from "@/components/Expenses/ExpensesStats"
-import { ExpensesFilters } from "@/components/Expenses/ExpensesFilters"
-import { ExpensesList } from "@/components/Expenses/ExpensesList"
-import { expenses } from "@/data/Expenses"
+import React, { useState } from "react"
+import { ExpensesHeader } from "@/components/expenses/ExpensesHeader"
+import { ExpensesStats } from "@/components/expenses/ExpensesStats"
+import { ExpensesFilters } from "@/components/expenses/ExpensesFilters"
+import { ExpensesList } from "@/components/expenses/ExpensesList"
+import { expenses } from "@/mocks/Expenses"
+import {Sidebar} from "@/components/sidebar/sidebar";
 
 export default function ExpensesPage() {
     const [searchTerm, setSearchTerm] = useState("")
@@ -22,6 +23,7 @@ export default function ExpensesPage() {
     return (
         <div className="min-h-screen bg-background">
             <main className="w-full overflow-auto">
+                <Sidebar />
                 <div className="p-4 md:p-6 space-y-6 md:space-y-8">
                     <ExpensesHeader />
                     <ExpensesStats expenses={expenses} />

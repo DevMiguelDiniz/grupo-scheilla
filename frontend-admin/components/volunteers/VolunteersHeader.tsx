@@ -1,16 +1,16 @@
-import { UserCheck, Plus } from "lucide-react"
+import {UserCheck, Plus, UsersIcon} from "lucide-react"
 
 export function VolunteersHeader() {
     return (
         <div className="space-y-4">
             <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
                 <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 bg-emerald-600 rounded-xl flex items-center justify-center flex-shrink-0">
-                        <UserCheck className="w-5 h-5 text-white" />
+                    <div className="w-15 h-10 bg-white rounded-xl flex items-center justify-center flex-shrink-0">
+                        <UsersIcon className="w-12 h-12 text-emerald-600" />
                     </div>
                     <div className="space-y-1">
                         <h1 className="text-2xl md:text-3xl font-bold tracking-tight">
-                            Voluntários
+                            Gestão de Voluntários
                         </h1>
                         <p className="text-sm md:text-base text-muted-foreground">
                            Lista de Voluntários Grupo Espírita Scheilla

@@ -1,7 +1,10 @@
 "use client"
 
 import { DollarSign, Users, Megaphone, UserCheck, Plus, Heart } from "lucide-react"
-import CalendarComponent from "@/components/calendar"
+import CalendarComponent from "../../components/dashboard/calendar"
+import {Sidebar} from "../../components/sidebar/sidebar";
+import type React from "react";
+import Image from "next/image";
 
 const quickActions = [
     {
@@ -69,20 +72,18 @@ export default function DashboardPage() {
     return (
         <div className="min-h-screen bg-background">
             <main className="w-full overflow-auto">
+                <Sidebar />
                 <div className="p-4 md:p-6 space-y-6 md:space-y-8">
                     {/* Header */}
                     <div className="space-y-4">
                         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
                             <div className="flex items-center gap-3">
-                                <div className="w-10 h-10 bg-emerald-600 rounded-xl flex items-center justify-center flex-shrink-0">
-                                    <Heart className="w-5 h-5 text-white" />
-                                </div>
                                 <div className="space-y-1">
-                                    <h1 className="text-2xl md:text-3xl font-bold tracking-tight">
-                                        Sistema Scheilla
+                                    <h1 className="text-xl md:text-3xl font-bold tracking-tight">
+                                        Bem-vindo ao Painel Administrativo
                                     </h1>
                                     <p className="text-sm md:text-base text-muted-foreground">
-                                        Gerencie as atividades do grupo espírita com amor e dedicação
+                                        Gerencie as atividades do Grupo Espírita Scheilla
                                     </p>
                                 </div>
                             </div>

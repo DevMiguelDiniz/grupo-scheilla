@@ -2,7 +2,8 @@
 
 import { useState } from "react"
 import { useRouter } from "next/navigation"
-import { VolunteerForm } from "@/components/Volunteers/VolunteerForm"
+import { VolunteerForm } from "@/components/volunteers/VolunteerForm"
+import { Sidebar } from "../../../components/sidebar/sidebar"
 
 interface VolunteerFormData {
     id?: number
@@ -20,14 +21,14 @@ export default function CreateVolunteerPage() {
 
     const handleSubmit = async (data: VolunteerFormData) => {
         setIsLoading(true)
-        
+
         try {
             // Aqui você faria a chamada para a API
             console.log("Dados para criar:", data)
-            
+
             // Simular delay de API
             await new Promise(resolve => setTimeout(resolve, 1500))
-            
+
             // Simulação de sucesso
             alert("Voluntário cadastrado com sucesso!")
             router.push("/voluntarios")
@@ -40,10 +41,15 @@ export default function CreateVolunteerPage() {
     }
 
     return (
-        <VolunteerForm
-            mode="create"
-            onSubmit={handleSubmit}
-            isLoading={isLoading}
-        />
+        <div className="min-h-screen bg-background flex">
+            <Sidebar activeRoute="/voluntarios" />
+            <div className="flex-1 mt-6 overflow-auto">
+                <VolunteerForm
+                    mode="create"
+                    onSubmit={handleSubmit}
+                    isLoading={isLoading}
+                />
+            </div>
+        </div>
     )
 }

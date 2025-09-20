@@ -1,11 +1,12 @@
 "use client"
 
-import { useState } from "react"
-import { VolunteersHeader } from "@/components/Volunteers/VolunteersHeader"
-import { VolunteersStats } from "@/components/Volunteers/VolunteersStats"
-import { VolunteersFilters } from "@/components/Volunteers/VolunteersFilters"
-import { VolunteersList } from "@/components/Volunteers/VolunteersList"
-import { volunteers } from "@/data/Volunteers"
+import React, { useState } from "react"
+import { VolunteersHeader } from "@/components/volunteers/VolunteersHeader"
+import { VolunteersStats } from "@/components/volunteers/VolunteersStats"
+import { VolunteersFilters } from "@/components/volunteers/VolunteersFilters"
+import { VolunteersList } from "@/components/volunteers/VolunteersList"
+import { volunteers } from "@/mocks/Volunteers"
+import {Sidebar} from "@/components/sidebar/sidebar";
 
 export default function VolunteersPage() {
     const [searchTerm, setSearchTerm] = useState("")
@@ -27,6 +28,7 @@ export default function VolunteersPage() {
     return (
         <div className="min-h-screen bg-background">
             <main className="w-full overflow-auto">
+                <Sidebar />
                 <div className="p-4 md:p-6 space-y-6 md:space-y-8">
                     <VolunteersHeader />
                     <VolunteersStats volunteers={volunteers} />

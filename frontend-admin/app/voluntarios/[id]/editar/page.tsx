@@ -2,8 +2,9 @@
 
 import { useState, useEffect } from "react"
 import { useRouter, useParams } from "next/navigation"
-import { VolunteerForm } from "@/components/Volunteers/VolunteerForm"
-import { volunteers } from "@/data/Volunteers"
+import { VolunteerForm } from "@/components/volunteers/VolunteerForm"
+import { volunteers } from "@/mocks/Volunteers"
+import { Sidebar } from "../../../../components/sidebar/sidebar"
 
 interface VolunteerFormData {
     id?: number
@@ -27,10 +28,10 @@ export default function EditVolunteerPage() {
         const fetchVolunteer = async () => {
             try {
                 const volunteerId = parseInt(params.id as string)
-                
+
                 // Simular busca na API - usando dados mockados
                 const found = volunteers.find(v => v.id === volunteerId)
-                
+
                 if (found) {
                     setVolunteer({
                         id: found.id,
@@ -61,17 +62,17 @@ export default function EditVolunteerPage() {
 
     const handleSubmit = async (data: VolunteerFormData) => {
         setIsLoading(true)
-        
+
         try {
             // Aqui você faria a chamada para a API
             console.log("Dados para atualizar:", {
                 ...data,
                 id: volunteer?.id
             })
-            
+
             // Simular delay de API
             await new Promise(resolve => setTimeout(resolve, 1500))
-            
+
             // Simulação de sucesso
             alert("Voluntário atualizado com sucesso!")
             router.push("/voluntarios")
@@ -85,10 +86,13 @@ export default function EditVolunteerPage() {
 
     if (loading) {
         return (
-            <div className="min-h-screen bg-background flex items-center justify-center">
-                <div className="flex items-center gap-3">
-                    <div className="w-6 h-6 border-2 border-emerald-600/30 border-t-emerald-600 rounded-full animate-spin" />
-                    <span className="text-muted-foreground">Carregando dados do voluntário...</span>
+            <div className="min-h-screen bg-background flex">
+                <Sidebar activeRoute="/voluntarios" />
+                <div className="flex-1 md:ml-64 flex items-center justify-center">
+                    <div className="flex items-center gap-3">
+                        <div className="w-6 h-6 border-2 border-emerald-600/30 border-t-emerald-600 rounded-full animate-spin" />
+                        <span className="text-muted-foreground">Carregando dados do voluntário...</span>
+                    </div>
                 </div>
             </div>
         )
@@ -99,11 +103,16 @@ export default function EditVolunteerPage() {
     }
 
     return (
-        <VolunteerForm
-            mode="edit"
-            initialData={volunteer}
-            onSubmit={handleSubmit}
-            isLoading={isLoading}
-        />
+        <div className="min-h-screen bg-background flex">
+            <Sidebar activeRoute="/voluntarios" />
+            <div className="flex-1 overflow-auto">
+                <VolunteerForm
+                    mode="edit"
+                    initialData={volunteer}
+                    onSubmit={handleSubmit}
+                    isLoading={isLoading}
+                />
+            </div>
+        </div>
     )
 }

@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react"
-import { UserCog, User, Mail, Phone, MapPin, Eye, Edit, Trash2 } from "lucide-react"
+import { UserCog, User, Mail, Phone, Eye, Edit, Trash2 } from "lucide-react"
 import { useRouter } from "next/navigation"
 import { VolunteerViewModal } from "./VolunteerViewModal"
 import { VolunteerDeleteModal } from "./VolunteerDeleteModal"
@@ -44,16 +44,9 @@ export function VolunteerCard({ volunteer }: VolunteerCardProps) {
         setIsDeleting(true)
         
         try {
-            // Aqui você faria a chamada para a API de exclusão
             console.log("Excluindo voluntário:", volunteer.id)
-            
-            // Simular delay de API
             await new Promise(resolve => setTimeout(resolve, 1500))
-            
-            // Simulação de sucesso
             alert("Voluntário excluído com sucesso!")
-            
-            // Aqui você recarregaria a lista ou atualizaria o estado
             window.location.reload()
         } catch (error) {
             console.error("Erro ao excluir voluntário:", error)
@@ -72,15 +65,15 @@ export function VolunteerCard({ volunteer }: VolunteerCardProps) {
                     <div className="flex-1 space-y-3">
                         <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2">
                             <div className="flex items-center gap-3">
-                                <div className="w-12 h-12 bg-emerald-100 rounded-full flex items-center justify-center flex-shrink-0">
+                                <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0">
                                     {volunteer.type === "Coordinator" ? (
-                                        <UserCog className="w-6 h-6 text-emerald-600" />
+                                        <UserCog className="w-6 h-6 text-blue-500" />
                                     ) : (
-                                        <User className="w-6 h-6 text-emerald-600" />
+                                        <User className="w-6 h-6 text-blue-600" />
                                     )}
                                 </div>
                                 <div>
-                                    <h3 className="font-semibold text-lg text-foreground">
+                                    <h3 className="font-semibold text-lg text-foreground mb-2">
                                         {volunteer.name}
                                     </h3>
                                     <div className="flex items-center gap-2">
@@ -103,7 +96,7 @@ export function VolunteerCard({ volunteer }: VolunteerCardProps) {
                             </div>
                         </div>
 
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-3 text-sm text-muted-foreground">
+                        <div className="grid grid-cols-1 md:grid-cols-1 gap-3 text-sm text-muted-foreground">
                             <div className="flex items-center gap-2">
                                 <Mail className="h-4 w-4 flex-shrink-0" />
                                 <span className="truncate">{volunteer.email}</span>
@@ -112,15 +105,8 @@ export function VolunteerCard({ volunteer }: VolunteerCardProps) {
                                 <Phone className="h-4 w-4 flex-shrink-0" />
                                 {volunteer.phone}
                             </div>
-                            <div className="flex items-start gap-2 md:col-span-2">
-                                <MapPin className="h-4 w-4 flex-shrink-0 mt-0.5" />
-                                <span className="text-pretty">{volunteer.address}</span>
-                            </div>
-                            <div className="md:col-span-2">
-                                <strong>Áreas de atuação:</strong> {volunteer.areas.join(", ")}
-                            </div>
-                            <div>
-                                <strong>Criado em:</strong> {volunteer.joinDate}
+                            <div className="flex items-center gap-2">
+                                <strong>Domingos de atuação:</strong> {volunteer.areas.join(", ")}
                             </div>
                         </div>
                     </div>

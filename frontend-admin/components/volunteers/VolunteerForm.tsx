@@ -88,7 +88,7 @@ export function VolunteerForm({ mode, initialData, onSubmit, isLoading = false }
     return (
         <div className="min-h-screen bg-background">
             <main className="w-full overflow-auto">
-                <div className="p-4 md:p-6 space-y-6 md:space-y-8">
+                <div className="p-4 md:p-10 space-y-8 md:space-y-8">
                     {/* Header */}
                     <div className="space-y-4">
                         <div className="flex items-center gap-4">
@@ -99,9 +99,6 @@ export function VolunteerForm({ mode, initialData, onSubmit, isLoading = false }
                                 <ArrowLeft className="h-4 w-4" />
                             </button>
                             <div className="flex items-center gap-3">
-                                <div className="w-10 h-10 bg-emerald-600 rounded-xl flex items-center justify-center flex-shrink-0">
-                                    <User className="w-5 h-5 text-white" />
-                                </div>
                                 <div className="space-y-1">
                                     <h1 className="text-2xl md:text-3xl font-bold tracking-tight">
                                         {mode === "create" ? "Cadastrar Voluntário" : "Editar Voluntário"}
@@ -216,35 +213,35 @@ export function VolunteerForm({ mode, initialData, onSubmit, isLoading = false }
                                     </div>
                                 </div>
 
-                                {/* Datas (apenas para modo edição) */}
-                                {mode === "edit" && (
-                                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                        <div className="space-y-2">
-                                            <label className="text-sm font-medium flex items-center gap-2 text-muted-foreground">
-                                                <Calendar className="h-4 w-4" />
-                                                Criado em
-                                            </label>
-                                            <input
-                                                type="text"
-                                                value={formData.created_at ? new Date(formData.created_at).toLocaleString('pt-BR') : ''}
-                                                disabled
-                                                className="w-full h-12 px-4 border rounded-lg bg-muted text-muted-foreground cursor-not-allowed"
-                                            />
-                                        </div>
-                                        <div className="space-y-2">
-                                            <label className="text-sm font-medium flex items-center gap-2 text-muted-foreground">
-                                                <Calendar className="h-4 w-4" />
-                                                Atualizado em
-                                            </label>
-                                            <input
-                                                type="text"
-                                                value={formData.updated_at ? new Date(formData.updated_at).toLocaleString('pt-BR') : ''}
-                                                disabled
-                                                className="w-full h-12 px-4 border rounded-lg bg-muted text-muted-foreground cursor-not-allowed"
-                                            />
-                                        </div>
-                                    </div>
-                                )}
+                                {/*/!* Datas (apenas para modo edição) *!/*/}
+                                {/*{mode === "edit" && (*/}
+                                {/*    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">*/}
+                                {/*        <div className="space-y-2">*/}
+                                {/*            <label className="text-sm font-medium flex items-center gap-2 text-muted-foreground">*/}
+                                {/*                <Calendar className="h-4 w-4" />*/}
+                                {/*                Criado em*/}
+                                {/*            </label>*/}
+                                {/*            <input*/}
+                                {/*                type="text"*/}
+                                {/*                value={formData.created_at ? new Date(formData.created_at).toLocaleString('pt-BR') : ''}*/}
+                                {/*                disabled*/}
+                                {/*                className="w-full h-12 px-4 border rounded-lg bg-muted text-muted-foreground cursor-not-allowed"*/}
+                                {/*            />*/}
+                                {/*        </div>*/}
+                                {/*        <div className="space-y-2">*/}
+                                {/*            <label className="text-sm font-medium flex items-center gap-2 text-muted-foreground">*/}
+                                {/*                <Calendar className="h-4 w-4" />*/}
+                                {/*                Atualizado em*/}
+                                {/*            </label>*/}
+                                {/*            <input*/}
+                                {/*                type="text"*/}
+                                {/*                value={formData.updated_at ? new Date(formData.updated_at).toLocaleString('pt-BR') : ''}*/}
+                                {/*                disabled*/}
+                                {/*                className="w-full h-12 px-4 border rounded-lg bg-muted text-muted-foreground cursor-not-allowed"*/}
+                                {/*            />*/}
+                                {/*        </div>*/}
+                                {/*    </div>*/}
+                                {/*)}*/}
 
                                 {/* Botões */}
                                 <div className="flex flex-col sm:flex-row gap-3 pt-6">

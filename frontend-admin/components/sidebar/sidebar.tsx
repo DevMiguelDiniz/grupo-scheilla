@@ -1,8 +1,9 @@
 "use client"
 
-import { useState } from "react"
+import React, { useState } from "react"
 import { useRouter } from "next/navigation"
 import { LayoutDashboard, DollarSign, Users, Megaphone, UserCheck, LogOut, Menu, X, Heart } from "lucide-react"
+import Image from "next/image";
 
 interface SidebarProps {
   className?: string
@@ -76,12 +77,19 @@ export function Sidebar({ className, activeRoute }: SidebarProps) {
           <div className="flex h-16 items-center justify-between px-4 border-b border-sidebar-border">
             {!isCollapsed && (
               <div className="flex items-center gap-3 min-w-0">
-                <div className="w-8 h-8 bg-emerald-600 rounded-lg flex items-center justify-center flex-shrink-0">
-                  <Heart className="w-4 h-4 text-white" />
+                <div className="w-13 h-13 bg-emerald-600 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <Image
+                        src="../logo-scheilla.png"
+                        alt="Logo Grupo Espírita Scheilla"
+                        width={100}
+                        height={100}
+                        className="w-full h-full object-contain"
+                        priority
+                    />
                 </div>
                 <div className="flex flex-col min-w-0">
-                  <span className="text-sm font-semibold text-sidebar-foreground truncate">Scheilla</span>
-                  <span className="text-xs text-muted-foreground truncate">Gestão</span>
+                  <span className="text-sm font-semibold text-sidebar-foreground truncate">Grupo Espírita</span>
+                  <span className="text-xs text-muted-foreground truncate">Scheilla</span>
                 </div>
               </div>
             )}
@@ -137,7 +145,7 @@ export function Sidebar({ className, activeRoute }: SidebarProps) {
           {/* Logout */}
           <div className="p-4 border-t border-sidebar-border">
             <button
-              className={`w-full flex items-center gap-3 h-11 px-3 rounded-lg font-medium text-sidebar-foreground hover:bg-destructive/10 hover:text-destructive transition-all ${
+              className={`w-full flex items-center gap-3 h-11 px-3 rounded-lg font-medium text-sidebar-foreground hover:text-destructive transition-all ${
                 isCollapsed ? "justify-center px-0" : "justify-start"
               }`}
               onClick={handleLogout}
