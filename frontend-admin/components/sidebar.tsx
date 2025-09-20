@@ -6,41 +6,41 @@ import { LayoutDashboard, DollarSign, Users, Megaphone, UserCheck, LogOut, Menu,
 
 interface SidebarProps {
   className?: string
+  activeRoute?: string
 }
 
-const menuItems = [
-  {
-    title: "Dashboard",
-    icon: LayoutDashboard,
-    href: "/dashboard",
-    active: true,
-  },
-  {
-    title: "Despesas",
-    icon: DollarSign,
-    href: "/despesas",
-  },
-  {
-    title: "Famílias",
-    icon: Users,
-    href: "/familias",
-  },
-  {
-    title: "Campanhas",
-    icon: Megaphone,
-    href: "/campanhas",
-  },
-  {
-    title: "Voluntários",
-    icon: UserCheck,
-    href: "/voluntarios",
-  },
-]
-
-export function Sidebar({ className }: SidebarProps) {
+export function Sidebar({ className, activeRoute }: SidebarProps) {
   const [isCollapsed, setIsCollapsed] = useState(false)
   const [isMobileOpen, setIsMobileOpen] = useState(false)
   const router = useRouter()
+
+  const menuItems = [
+    {
+      title: "Dashboard",
+      icon: LayoutDashboard,
+      href: "/dashboard",
+    },
+    {
+      title: "Despesas", 
+      icon: DollarSign,
+      href: "/despesas",
+    },
+    {
+      title: "Famílias",
+      icon: Users,
+      href: "/familias",
+    },
+    {
+      title: "Campanhas",
+      icon: Megaphone,
+      href: "/campanhas",
+    },
+    {
+      title: "Voluntários",
+      icon: UserCheck,
+      href: "/voluntarios",
+    },
+  ]
 
   const handleLogout = () => {
     router.push("/")
@@ -113,11 +113,12 @@ export function Sidebar({ className }: SidebarProps) {
           <nav className="flex-1 p-4 space-y-2 overflow-y-auto">
             {menuItems.map((item) => {
               const Icon = item.icon
+              const isActive = activeRoute === item.href
               return (
                 <button
                   key={item.href}
                   className={`w-full flex items-center gap-3 h-11 px-3 rounded-lg font-medium transition-all ${
-                    item.active
+                    isActive
                       ? "bg-emerald-600 text-white hover:bg-emerald-700 shadow-sm"
                       : "text-sidebar-foreground hover:bg-sidebar-accent hover:text-sidebar-accent-foreground"
                   } ${isCollapsed ? "justify-center px-0" : "justify-start"}`}
