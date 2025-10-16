@@ -324,26 +324,26 @@ export function CampaignForm({ mode, initialData, onSubmit, isLoading = false }:
                                     </select>
                                 </div>
 
-                                {/* Meta */}
-                                <div className="space-y-2">
-                                    <label htmlFor="goal" className="text-sm font-medium flex items-center gap-2">
-                                        <Target className="h-4 w-4" />
-                                        Meta da Campanha
-                                    </label>
-                                    <input
-                                        id="goal"
-                                        type="text"
-                                        value={formData.goal}
-                                        onChange={(e) => handleChange("goal", e.target.value)}
-                                        placeholder="Ex: 500 cestas básicas, 100 participantes, etc."
-                                        className={`w-full h-12 px-4 border rounded-lg bg-background focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 transition-colors ${
-                                            errors.goal ? "border-red-500" : "border-border"
-                                        }`}
-                                    />
-                                    {errors.goal && (
-                                        <p className="text-sm text-red-600">{errors.goal}</p>
-                                    )}
-                                </div>
+                                {/*/!* Meta *!/*/}
+                                {/*<div className="space-y-2">*/}
+                                {/*    <label htmlFor="goal" className="text-sm font-medium flex items-center gap-2">*/}
+                                {/*        <Target className="h-4 w-4" />*/}
+                                {/*        Meta da Campanha*/}
+                                {/*    </label>*/}
+                                {/*    <input*/}
+                                {/*        id="goal"*/}
+                                {/*        type="text"*/}
+                                {/*        value={formData.goal}*/}
+                                {/*        onChange={(e) => handleChange("goal", e.target.value)}*/}
+                                {/*        placeholder="Ex: 500 cestas básicas, 100 participantes, etc."*/}
+                                {/*        className={`w-full h-12 px-4 border rounded-lg bg-background focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 transition-colors ${*/}
+                                {/*            errors.goal ? "border-red-500" : "border-border"*/}
+                                {/*        }`}*/}
+                                {/*    />*/}
+                                {/*    {errors.goal && (*/}
+                                {/*        <p className="text-sm text-red-600">{errors.goal}</p>*/}
+                                {/*    )}*/}
+                                {/*</div>*/}
 
                                 {/* Arrecadado (apenas para edição) */}
                                 {mode === "edit" && (
