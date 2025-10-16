@@ -15,33 +15,38 @@ export function Sidebar({ className, activeRoute }: SidebarProps) {
   const [isMobileOpen, setIsMobileOpen] = useState(false)
   const router = useRouter()
 
-  const menuItems = [
-    {
-      title: "Dashboard",
-      icon: LayoutDashboard,
-      href: "/dashboard",
-    },
-    {
-      title: "Despesas", 
-      icon: DollarSign,
-      href: "/despesas",
-    },
-    {
-      title: "Famílias",
-      icon: Users,
-      href: "/familias",
-    },
-    {
-      title: "Campanhas",
-      icon: Megaphone,
-      href: "/campanhas",
-    },
-    {
-      title: "Voluntários",
-      icon: UserCheck,
-      href: "/voluntarios",
-    },
-  ]
+    const menuItems = [
+        {
+            title: "Dashboard",
+            icon: LayoutDashboard,
+            href: "/dashboard",
+        },
+        {
+            title: "Despesas",
+            icon: DollarSign,
+            href: "/despesas",
+        },
+        {
+            title: "Famílias",
+            icon: Users,
+            href: "/familias",
+        },
+        {
+            title: "Campanhas",
+            icon: Megaphone,
+            href: "/campanhas",
+        },
+        {
+            title: "Doações",
+            icon: Heart,
+            href: "/doacoes",
+        },
+        {
+            title: "Voluntários",
+            icon: UserCheck,
+            href: "/voluntarios",
+        },
+    ]
 
   const handleLogout = () => {
     router.push("/")
